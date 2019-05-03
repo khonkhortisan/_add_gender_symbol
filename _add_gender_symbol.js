@@ -1,10 +1,13 @@
-//cd AppData/Roaming/Anki2/username
-//git clone https://github.com/khonkhortisan/_add_gender_symbol.git
-//mklink /H "collection.media/_add_gender_symbol.js" "_add_gender_symbol/_add_gender_symbol.js"
-
+//save this file in collection.media
+//	or git clone and hardlink it there:
+//	cd AppData/Roaming/Anki2/username
+//	git clone https://github.com/khonkhortisan/_add_gender_symbol.git
+//	make a hard link using one of these two commands
+//		mklink /H "collection.media/_add_gender_symbol.js" "_add_gender_symbol/_add_gender_symbol.js"
+//		ln "collection.media/_add_gender_symbol.js" "_add_gender_symbol/_add_gender_symbol.js"
+//then replace {{Gender}} with
+//	<span class="gender {{Gender}}">{{Gender}}</span><script src="_add_gender_symbol.js"/>
 //*see _style.anki.main.css
-//replace {{Gender}} with
-//<span class="gender {{Gender}}">{{Gender}}</span><script src="_add_gender_symbol.js"/>
 addgendersymbol = function(){///alert("function run");
 	let dosymbol=true, docolor=true, doreplace=true;	// conversion options
 	let doallwords=true, dofirstword=false, dolastparen=false, dodotwords=false;	// placement options
