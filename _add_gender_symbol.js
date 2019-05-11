@@ -1,13 +1,10 @@
-//save this file in collection.media
-//	or git clone and hardlink it there:
-//	cd AppData/Roaming/Anki2/username
-//	git clone https://github.com/khonkhortisan/_add_gender_symbol.git
-//	make a hard link using one of these two commands
-//		mklink /H "collection.media/_add_gender_symbol.js" "_add_gender_symbol/_add_gender_symbol.js"
-//		ln "collection.media/_add_gender_symbol.js" "_add_gender_symbol/_add_gender_symbol.js"
-//then replace {{Gender}} with
-//	<span class="gender {{Gender}}">{{Gender}}</span><script src="_add_gender_symbol.js"/>
+//cd AppData/Roaming/Anki2/username
+//git clone https://github.com/khonkhortisan/_add_gender_symbol.git
+//mklink /H "collection.media/_add_gender_symbol.js" "_add_gender_symbol/_add_gender_symbol.js"
+
 //*see _style.anki.main.css
+//replace {{Gender}} with
+//<span class="gender {{Gender}}">{{Gender}}</span><script src="_add_gender_symbol.js"/>
 addgendersymbol = function(){///alert("function run");
 	let dosymbol=true, docolor=true, doreplace=true;	// conversion options
 	let doallwords=true, dofirstword=false, dolastparen=false, dodotwords=false;	// placement options
@@ -58,6 +55,8 @@ replacement=0	,abbreviation=1	,color=2	,defaultcolor=2	,symbol=3	,replace=4	,exp
 ["transitive"	,	,transitive	||'yellow'	,'🔴'	,'trans'	,	],//type of verb
 ["subject"	,	,noun	||'blue'	,'⚽→'	,'suj'	,	],//grammar? SVO
 ["object"	,	,noun	||'blue'	,'→⚽'	,'obj'	,	],//grammar? SVO
+["direct"	,	,noun	||'blue'	,'→'	,'dir'	,	],//object
+["indirect"	,	,noun	||'blue'	,'↝'	,'indir'	,	],//object ↝ ↝
 ["number"	,	,number	||'green'	,'#'	,'num'	,	],//number //green like money
 ["first"	,	,'light'	+number	,'#'	,'1st'	,	],//person/declension/number
 ["second"	,	,	number	,'#'	,'2nd'	,	],//person/declension/number
@@ -93,7 +92,7 @@ replacement=0	,abbreviation=1	,color=2	,defaultcolor=2	,symbol=3	,replace=4	,exp
 ["nominative"	,	,case_	||'blue'	,'⚽→💼'	,'nom'	,	],//case, Subject of a finite verb
 ["accusative"	,	,case_	||'blue'	,'→⚽💼'	,'acc'	,	],//case, Direct object of a transitive verb
 ["dative"	,	,case_	||'blue'	,'→⚽→👤💼'	,'dat'	,	],//case, Indirect object of a verb 
-["ablative"	,	,case_	||'blue'	,'←💼→'	,'abl'	,	],//case, Movement away from 💥
+["ablative"	,	,case_	||'blue'	,'←💼→'	,'abl'	,	],//case, Movement away from 💥 ⥈
 ["genitive"	,	,case_	||'blue'	,'🤳💼'	,'gen'	,	],//case, Possessor of another noun 
 ["vocative"	,	,case_	||'blue'	,'→👤💼'	,'voc'	,	],//case, Addressee
 ["locative"	,	,case_	||'blue'	,'📍💼'	,'loc'	,	],//case, Location, either physical or temporal 
